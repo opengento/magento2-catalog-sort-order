@@ -8,10 +8,8 @@ declare(strict_types=1);
 namespace Opengento\CatalogSortOrder\Model\Config;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Exception\InputException;
 use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Store\Model\ScopeInterface;
-
 use Opengento\CatalogSortOrder\Model\SortOrder\Option;
 
 use function array_map;
