@@ -12,11 +12,20 @@
                 <field id="advanced_sort_by_status" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Advanced Sort By</label>
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
-                    <comment>If disabled, you can select what attributes are going to be available in sort options with direction.</comment>
+                    <comment>If enabled, you can override the sort by options.</comment>
+                </field>
+                <field id="advanced_sort_by_remove_direction" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Remove Sort By Direction</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If removed, you can select what attributes are going to be available in sort options with direction.</comment>
+                    <depends>
+                        <field id="sort_direction_status">1</field>
+                    </depends>
                 </field>
                 <field id="advanced_sort_by_options" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Product Listing Sort Options</label>
                     <frontend_model>Opengento\CatalogSortOrder\Block\Adminhtml\Config\Form\Field\SortOrder</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                     <depends>
                         <field id="sort_direction_status">1</field>
                     </depends>

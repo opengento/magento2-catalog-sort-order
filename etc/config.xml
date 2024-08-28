@@ -10,6 +10,7 @@
         <catalog>
             <frontend>
                 <advanced_sort_by_status>1</advanced_sort_by_status>
+                <advanced_sort_by_remove_direction>1</advanced_sort_by_remove_direction>
                 <advanced_sort_by_options>
                     <position>
                         <attribute_code>position</attribute_code>

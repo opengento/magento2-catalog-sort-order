@@ -45,6 +45,7 @@ Enable advanced catalog list sort by feature.
 Setup the sort options, add the attributes for sort by based on the scope (global/website/store view).  
 You can also override the sort option and define if the direction must be included in the label or not.  
 If you choose to not include the direction, then the default direction is ascending.  
+You can also set the position of the orders in the sort by.  
 
 ## Documentation
 

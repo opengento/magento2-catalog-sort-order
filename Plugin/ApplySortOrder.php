@@ -35,7 +35,9 @@ class ApplySortOrder
         if ($this->sortOrderConfig->isEnabled()) {
             $subject->setData('_current_grid_advanced_order', $result);
             [$result, $direction] = array_pad(explode(Direction::SEPARATOR, $result, 2), 2, null);
-            $subject->setData('_current_grid_direction', $direction);
+            if ($direction !== null) {
+                $subject->setData('_current_grid_direction', $direction);
+            }
         }
 
         return $result;
