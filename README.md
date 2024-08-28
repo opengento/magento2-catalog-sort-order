@@ -41,7 +41,17 @@ bin/magento setup:upgrade
 
 ## Features
 
+Enable advanced catalog list sort by feature.  
+Setup the sort options, add the attributes for sort by based on the scope (global/website/store view).  
+You can also override the sort option and define if the direction must be included in the label or not.  
+If you choose to not include the direction, then the default direction is ascending.  
+
 ## Documentation
+
+Settings are available at:
+
+- `Stores > Configuration > Catalog > Catalog > Storefront > Advanced Sort By`
+- `Stores > Configuration > Catalog > Catalog > Storefront > Product Listing Sort Options`
 
 ## Support
 
