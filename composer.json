@@ -1,0 +1,57 @@
+{
+    "name": "opengento/module-catalog-sort-order",
+    "description": "This module allows to setup the sort direction options in the storefront catalog view.",
+    "keywords": [
+        "php",
+        "magento",
+        "magento2",
+        "catalog",
+        "sort",
+        "order",
+        "sort-order"
+    ],
+    "require": {
+        "php": "^8.1",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-config": "*",
+        "magento/module-store": "*",
+        "magento/module-catalog": "*"
+    },
+    "require-dev": {
+        "magento/magento-coding-standard": "^33",
+        "roave/security-advisories": "dev-latest"
+    },
+    "suggest": {},
+    "type": "magento2-module",
+    "license": [
+        "MIT"
+    ],
+    "homepage": "https://github.com/opengento/magento2-catalog-sort-order",
+    "authors": [
+        {
+            "name": "Opengento Team",
+            "email": "opengento@gmail.com",
+            "homepage": "https://opengento.fr/",
+            "role": "lead"
+        },
+        {
+            "name": "Thomas Klein",
+            "email": "thomaskein876@gmail.com",
+            "homepage": "https://www.linkedin.com/in/thomas-klein/",
+            "role": "maintainer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/opengento/magento2-catalog-sort-order",
+        "issues": "https://github.com/opengento/magento2-catalog-sort-order/issues"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Opengento\\CatalogSortOrder\\": ""
+        }
+    }
+}

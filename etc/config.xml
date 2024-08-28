@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © OpenGento, All rights reserved.
+ * See LICENSE bundled with this library for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <catalog>
+            <frontend>
+                <advanced_sort_by_status>1</advanced_sort_by_status>
+                <advanced_sort_by_options>
+                    <position>
+                        <attribute_code>position</attribute_code>
+                        <attribute_label>Popularity</attribute_label>
+                        <include_direction>0</include_direction>
+                    </position>
+                    <price>
+                        <attribute_code>price</attribute_code>
+                        <attribute_label>Price</attribute_label>
+                        <include_direction>1</include_direction>
+                    </price>
+                </advanced_sort_by_options>
+            </frontend>
+        </catalog>
+    </default>
+</config>
