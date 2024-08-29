@@ -23,6 +23,7 @@
                         <include_direction>1</include_direction>
                     </price>
                 </advanced_sort_by_options>
+                <advanced_sort_by_overrides_category_orders>1</advanced_sort_by_overrides_category_orders>
             </frontend>
         </catalog>
     </default>

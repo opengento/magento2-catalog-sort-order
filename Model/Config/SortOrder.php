@@ -20,6 +20,7 @@ class SortOrder
 {
     private const CONFIG_PATH_ADVANCED_SORT_STATUS = 'catalog/frontend/advanced_sort_by_status';
     private const CONFIG_PATH_ADVANCED_SORT_OPTIONS = 'catalog/frontend/advanced_sort_by_options';
+    private const CONFIG_PATH_OVERRIDE_CATEGORY_ORDERS = 'catalog/frontend/advanced_sort_by_overrides_category_orders';
 
     public function __construct(
         private ScopeConfigInterface $scopeConfig,
@@ -58,6 +59,15 @@ class SortOrder
                 ),
                 $options
             )
+        );
+    }
+
+    public function isCategoryOrdersOverridden(string|int|null $scopeId = null): bool
+    {
+        return $this->scopeConfig->isSetFlag(
+            self::CONFIG_PATH_OVERRIDE_CATEGORY_ORDERS,
+            ScopeInterface::SCOPE_STORE,
+            $scopeId
         );
     }
 }

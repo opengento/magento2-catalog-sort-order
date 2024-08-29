@@ -2,15 +2,11 @@
 <!--
 /**
  * Copyright © OpenGento, All rights reserved.
- */-->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Magento\Catalog\Model\Config">
-        <plugin name="Opengento_CatalogSortOrder::"
-                type="Opengento\CatalogSortOrder\Plugin\UpdateSortOrderLabel"/>
-    </type>
+ * See LICENSE bundled with this library for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
-        <plugin name="Opengento_CatalogSortOrder::azea"
-                type="Opengento\CatalogSortOrder\Plugin\ApplySortOrder"/>
+        <plugin name="Opengento_CatalogSortOrder::advanced_sort_order" type="Opengento\CatalogSortOrder\Plugin\ApplySortOrder"/>
     </type>
 </config>
