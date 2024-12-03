@@ -11,7 +11,7 @@
         "sort-order"
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.1",
         "magento/framework": "*",
         "magento/module-backend": "*",
         "magento/module-config": "*",
