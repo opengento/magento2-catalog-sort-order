@@ -19,7 +19,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>If removed, you can select what attributes are going to be available in sort options with direction.</comment>
                     <depends>
-                        <field id="sort_direction_status">1</field>
+                        <field id="advanced_sort_by_status">1</field>
                     </depends>
                 </field>
                 <field id="advanced_sort_by_options" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
@@ -27,13 +27,16 @@
                     <frontend_model>Opengento\CatalogSortOrder\Block\Adminhtml\Config\Form\Field\SortOrder</frontend_model>
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                     <depends>
-                        <field id="sort_direction_status">1</field>
+                        <field id="advanced_sort_by_status">1</field>
                     </depends>
                 </field>
                 <field id="advanced_sort_by_overrides_category_orders" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Overrides Category Level Defined Sort By</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>If yes, available sort by defined on the category level will be overridden by above settings.</comment>
+                    <depends>
+                        <field id="advanced_sort_by_status">1</field>
+                    </depends>
                 </field>
             </group>
         </section>
