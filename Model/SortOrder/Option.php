@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace Opengento\CatalogSortOrder\Model\SortOrder;
 
-readonly class Option
+class Option
 {
     public function __construct(
-        public string $code,
-        public string $label,
-        public bool $includeDirection
+        public readonly string $code,
+        public readonly string $label,
+        public readonly bool $includeDirection
     ) {}
 }
