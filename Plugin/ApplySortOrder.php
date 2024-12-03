@@ -8,11 +8,9 @@ declare(strict_types=1);
 namespace Opengento\CatalogSortOrder\Plugin;
 
 use Magento\Catalog\Block\Product\ProductList\Toolbar;
-use Magento\Catalog\Model\Config;
-use Magento\Eav\Model\Entity\Attribute;
 use Opengento\CatalogSortOrder\Model\Config\SortOrder as SortOrderConfig;
 use Opengento\CatalogSortOrder\Model\SortOrder\Direction;
-use Opengento\CatalogSortOrder\Model\SortOrder\Option;
+use Opengento\CatalogSortOrder\Provider\SortOrders;
 
 use function array_intersect_key;
 use function array_pad;
@@ -22,13 +20,12 @@ class ApplySortOrder
 {
     public function __construct(
         private SortOrderConfig $sortOrderConfig,
-        private Config $catalogConfig
+        private SortOrders $sortOrders
     ) {}
 
     public function beforeGetAvailableOrders(Toolbar $subject): array
     {
         if ($this->sortOrderConfig->isEnabled() && !$subject->hasData('_grid_advanced_available_orders_isset')) {
-            $subject->setData('_grid_advanced_available_orders_init', true);
             $subject->setAvailableOrders([]);
         }
 
@@ -38,9 +35,9 @@ class ApplySortOrder
     public function beforeSetAvailableOrders(Toolbar $subject, array $orders): array
     {
         if ($this->sortOrderConfig->isEnabled()) {
-            $orders = $this->sortOrderConfig->isCategoryOrdersOverridden() || $subject->hasData('_grid_advanced_available_orders_init')
-                ? $this->createSortByOptions()
-                : array_intersect_key($this->createSortByOptions(), $orders);
+            $orders = $this->sortOrderConfig->isCategoryOrdersOverridden() || $orders !== []
+                ? $this->sortOrders->getOptions()
+                : array_intersect_key($this->sortOrders->getOptions(), $orders);
             $subject->setData('_grid_advanced_available_orders_isset', true);
         }
 
@@ -70,30 +67,5 @@ class ApplySortOrder
         }
 
         return $result;
-    }
-
-    private function createSortByOptions(): array
-    {
-        $attributesForSortBy = $this->catalogConfig->getAttributesUsedForSortBy();
-        $availableOrders = [];
-        foreach ($this->sortOrderConfig->getSortOptions() as $option) {
-            $attribute = $attributesForSortBy[$option->code] ?? null;
-            if ($option->includeDirection) {
-                foreach (Direction::cases() as $direction) {
-                    $availableOrders[$direction->appendValue($option->code)] = $direction->prependLabel(
-                        $this->resolveLabel($attribute, $option)
-                    );
-                }
-            } else {
-                $availableOrders[$option->code] = $this->resolveLabel($attribute, $option);
-            }
-        }
-
-        return $availableOrders;
-    }
-
-    private function resolveLabel(?Attribute $attribute, Option $option): string
-    {
-        return $option->label ?: $attribute?->getStoreLabel() ?? $option->code;
     }
 }

@@ -9,4 +9,7 @@
     <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
         <plugin name="Opengento_CatalogSortOrder::advanced_sort_order" type="Opengento\CatalogSortOrder\Plugin\ApplySortOrder"/>
     </type>
+    <type name="Magento\Catalog\Helper\Product\ProductList">
+        <plugin name="Opengento_CatalogSortOrder::resolve_default_sort" type="Opengento\CatalogSortOrder\Plugin\ResolveDefaultSort"/>
+    </type>
 </config>
